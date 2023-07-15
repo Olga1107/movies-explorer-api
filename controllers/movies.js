@@ -10,7 +10,7 @@ module.exports.getMovies = (req, res, next) => {
     .catch((err) => next(err));
 };
 
-module.exports.createCard = (req, res, next) => {
+module.exports.createMovie = (req, res, next) => {
   const owner = req.user._id;
   const {
     country,
