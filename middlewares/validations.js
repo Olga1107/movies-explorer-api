@@ -10,6 +10,13 @@ const validationUrl = (url) => {
   throw new BadRequest('Некорректный адрес URL');
 };
 
+const validationID = (id) => {
+  if (/^[0-9a-fA-F]{24}$/.test(id)) {
+    return id;
+  }
+  throw new BadRequest('Передан некорретный id.');
+};
+
 const validationLogin = celebrate({
   body: Joi.object().keys({
     email: Joi.string().required().email(),
@@ -56,7 +63,7 @@ const validationCreateMovie = celebrate({
 
 const validationMovieId = celebrate({
   params: Joi.object().keys({
-    movieId: Joi.string().hex().length(24).required(),
+    movieId: Joi.string().required().custom(validationID),
   }),
 });
 
