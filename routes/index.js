@@ -10,7 +10,7 @@ router.post('/signin', validationLogin, login);
 router.post('/signup', validationCreateUser, createUser);
 router.use(auth);
 router.use('/users', usersRout);
-router.use('/cards', moviesRout);
+router.use('/movies', moviesRout);
 router.use('/*', (req, res, next) => {
   next(new NotFoundError('Запрашиваемый ресурс не найден'));
 });

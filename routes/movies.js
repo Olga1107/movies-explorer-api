@@ -8,6 +8,6 @@ const {
 
 moviesRout.get('/', getMovies);
 moviesRout.post('/', validationCreateMovie, createMovie);
-moviesRout.delete('/:cardId', validationMovieId, deleteMovie);
+moviesRout.delete('/:movieId', validationMovieId, deleteMovie);
 
 module.exports = moviesRout;
